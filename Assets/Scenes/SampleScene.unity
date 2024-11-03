@@ -525,7 +525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 582675756805145833, guid: cf20fb50f96512b4cbdcc05d8eafc840, type: 3}
       propertyPath: m_Name
-      value: image 1
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 3002663830001585312, guid: cf20fb50f96512b4cbdcc05d8eafc840, type: 3}
       propertyPath: m_LocalPosition.x
