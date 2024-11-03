@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int state = 0;
     [SerializeField] private float speed;
     [SerializeField] private float JumpHeight;
 
     private Rigidbody2D _rigidbody;
     private bool isJumping = false;
+
+    int coins = 0;
+    public int state = 0;
 
     Animator animator;
 
@@ -60,4 +62,9 @@ public class PlayerController : MonoBehaviour
         isJumping=false;
         animator.SetFloat("Move Y", 0);
     }    
+
+    public void AddCoin()
+    {
+        coins++;
+    }
 }
