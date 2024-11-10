@@ -67,4 +67,9 @@ public class PlayerController : MonoBehaviour
     {
         coins++;
     }
+
+    public void PlayerDeath()
+    {
+        Destroy(this.gameObject);
+    }
 }
