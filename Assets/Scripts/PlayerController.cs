@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // [SerializeField] GameObject projectilePrefab;
     [SerializeField] private float speed;
     [SerializeField] private float JumpHeight;
 
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     int coins = 0;
     public int state = 0;
+    public int playerLives=3;
 
     Animator animator;
 
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -28,7 +31,15 @@ public class PlayerController : MonoBehaviour
         Vector2 position = transform.position;
         float move = Input.GetAxis("Horizontal");
         position.x = position.x + speed * move *Time.deltaTime;
-        transform.position=position;        
+        transform.position=position; 
+
+        // if(Input.GetKeyDown(KeyCode.F))
+        // {
+        //     GameObject projectileObject = Instantiate(projectilePrefab, GetComponent<Rigidbody2D>().position, Quaternion.identity);
+        //     Projectile projectile = projectileObject.GetComponent<Projectile>();
+        //     state = move <0 ? -1 : 1;
+        //     Projectile.Launch(new Vector2(position.x, 0), 300);
+        // }
 
         if (!isJumping && Input.GetKeyDown(KeyCode.Space))
         {
@@ -66,6 +77,15 @@ public class PlayerController : MonoBehaviour
     public void AddCoin()
     {
         coins++;
+    }
+
+    public void LifeLoss()
+    {
+        if(playerLives!=0)
+        playerLives--;
+
+        else
+        PlayerDeath();
     }
 
     public void PlayerDeath()
